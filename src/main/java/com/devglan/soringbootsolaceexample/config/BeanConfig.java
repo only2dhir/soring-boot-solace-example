@@ -54,9 +54,8 @@ public class BeanConfig {
             MessageConsumer messageConsumer = session.createConsumer(queue);
             messageConsumer.setMessageListener(jmsMessageListener());
             connection.setExceptionListener(exceptionListener);
-            logger.info("Connected. Awaiting message...");
             connection.start();
-            logger.info("Connection started...");
+            logger.info("Connected. Awaiting message...");
         } catch (Exception e) {
             logger.info("JMS connection failed with Solace." + e.getMessage());
             e.printStackTrace();
